@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "cim": "Az Utolsó Létforma",
+    "hossz": 4.09,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Bukits Gergo",
+    "stilus": [
+      "Heavy Metál",
+      "Metál"
+    ],
+    "kiadva": true,
+    "keletkezés": 2023
+  },
+  {
+    "id": 2,
+    "cim": "Porcicák",
+    "hossz": 2.13,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Alternatív Rock",
+      "Progresszív Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 3,
+    "cim": "Televízió",
+    "hossz": 5.03,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Progresszív Rock",
+      "Hard Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 4,
+    "cim": "Felfordulás",
+    "hossz": 3.07,
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Alternatív Rock",
+      "Punk"
+    ],
+    "kiadva": true,
+    "keletkezés": 2024
+  },
+  {
+    "id": 5,
+    "cim": "Ha nem lennél",
+    "hossz": 3.36,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Rock And Roll",
+      "Hard Rock"
+    ],
+    "kiadva": true,
+    "keletkezés": 2025
+  },
+  {
+    "id": 6,
+    "cim": "Nem beszélünk róla",
+    "hossz": 4.06,
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Alternatív Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 7,
+    "cim": "Fácánvadászat",
+    "hossz": 4.21,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Alternatív Rock",
+      "Progresszív Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2024
+  },
+  {
+    "id": 8,
+    "cim": "Fácánvadászat pt.3",
+    "hossz": 3.06,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid;Nagy Péter",
+    "stilus": [
+      "Alternatív Rock",
+      "Hard Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 9,
+    "cim": "Otthonom",
+    "hossz": 5.36,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Thrash Metál"
+    ],
+    "kiadva": true,
+    "keletkezés": 2024
+  },
+  {
+    "id": 10,
+    "cim": "Larry Jet (Ébrenlétben Álmodom)",
+    "hossz": 4.36,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Heavy Metal",
+      "Progresszív Rock"
+    ],
+    "kiadva": true,
+    "keletkezés": 2024
+  },
+  {
+    "id": 11,
+    "cim": "Velem vagy Ellenem",
+    "hossz": 4.28,
+    "szerzo": "Páli Dávid;Bukits Gergõ",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Hard Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2024
+  },
+  {
+    "id": 12,
+    "cim": "Bûnbak",
+    "hossz": 5.10,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Thrash Metál"
+    ],
+    "kiadva": false,
+    "keletkezés": 2023
+  },
+  {
+    "id": 13,
+    "cim": "Fogságban vagy",
+    "hossz": 4.20,
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Heavy Metál"
+    ],
+    "kiadva": false,
+    "keletkezés": 2024
+  },
+  {
+    "id": 14,
+    "cim": "Megesik",
+    "hossz": 4.16,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Hard Rock",
+      "Alternatív Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2024
+  },
+  {
+    "id": 15,
+    "cim": "Milánó",
+    "hossz": 3.36,
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Alternatív Rock",
+      "Rock And Roll"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 16,
+    "cim": "IAW (Nincsen tovább)",
+    "hossz": 5.46,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Páli Dávid",
+    "stilus": [
+      "Progresszív Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  },
+  {
+    "id": 17,
+    "cim": "MÁV",
+    "hossz": 4.41,
+    "szerzo": "Bukits Gergõ",
+    "szovegiro": "Bukits Gergõ",
+    "stilus": [
+      "Progresszív Rock",
+      "Hard Rock"
+    ],
+    "kiadva": false,
+    "keletkezés": 2025
+  }
+]
