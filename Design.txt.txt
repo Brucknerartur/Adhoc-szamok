@@ -1,0 +1,8 @@
+Design
+-fő színek (fehér, fekete, piros)
+-Cím lekerekített boxban (valamilyen más háttérrel)
+-lekerekített boxok
+-lekerekített buttonok és checkboxok
+-gombok színének változtatása (nemtom mien szín)
+-egy pár title is lehetne más színű
+(-animációk, ha egyáltalán léteznek)
