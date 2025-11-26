@@ -1,217 +1,217 @@
 [
   {
     "id": 1,
-    "cim": "Az UtolsÛ LÈtforma",
+    "cim": "Az Utols√≥ L√©tforma",
     "hossz": 4.09,
-    "szerzo": "Nagy PÈter",
+    "szerzo": "Nagy P√©ter",
     "szovegiro": "Bukits Gergo",
     "stilus": [
-      "Heavy Met·l",
-      "Met·l"
+      "Heavy Met√°l",
+      "Met√°l"
     ],
     "kiadva": true,
-    "keletkezÈs": 2023
+    "keletkezes": 2023
   },
   {
     "id": 2,
-    "cim": "Porcic·k",
+    "cim": "Porcic√°k",
     "hossz": 2.13,
-    "szerzo": "Nagy PÈter",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "Nagy P√©ter",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "AlternatÌv Rock",
-      "ProgresszÌv Rock"
+      "Alternat√≠v Rock",
+      "Progressz√≠v Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 3,
-    "cim": "TelevÌziÛ",
+    "cim": "Telev√≠zi√≥",
     "hossz": 5.03,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
-      "ProgresszÌv Rock",
+      "Progressz√≠v Rock",
       "Hard Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 4,
-    "cim": "Felfordul·s",
+    "cim": "Felfordul√°s",
     "hossz": 3.07,
-    "szerzo": "P·li D·vid",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "P√°li D√°vid",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "AlternatÌv Rock",
+      "Alternat√≠v Rock",
       "Punk"
     ],
     "kiadva": true,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 5,
-    "cim": "Ha nem lennÈl",
+    "cim": "Ha nem lenn√©l",
     "hossz": 3.36,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
       "Rock And Roll",
       "Hard Rock"
     ],
     "kiadva": true,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 6,
-    "cim": "Nem beszÈl¸nk rÛla",
+    "cim": "Nem besz√©l√ºnk r√≥la",
     "hossz": 4.06,
-    "szerzo": "P·li D·vid",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "P√°li D√°vid",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "AlternatÌv Rock"
+      "Alternat√≠v Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 7,
-    "cim": "F·c·nvad·szat",
+    "cim": "F√°c√°nvad√°szat",
     "hossz": 4.21,
-    "szerzo": "Nagy PÈter",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Nagy P√©ter",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
-      "AlternatÌv Rock",
-      "ProgresszÌv Rock"
+      "Alternat√≠v Rock",
+      "Progressz√≠v Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 8,
-    "cim": "F·c·nvad·szat pt.3",
+    "cim": "F√°c√°nvad√°szat pt.3",
     "hossz": 3.06,
-    "szerzo": "Nagy PÈter",
-    "szovegiro": "P·li D·vid;Nagy PÈter",
+    "szerzo": "Nagy P√©ter",
+    "szovegiro": "P√°li D√°vid;Nagy P√©ter",
     "stilus": [
-      "AlternatÌv Rock",
+      "Alternat√≠v Rock",
       "Hard Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 9,
     "cim": "Otthonom",
     "hossz": 5.36,
-    "szerzo": "Nagy PÈter",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "Nagy P√©ter",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "Thrash Met·l"
+      "Thrash Met√°l"
     ],
     "kiadva": true,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 10,
-    "cim": "Larry Jet (…brenlÈtben ¡lmodom)",
+    "cim": "Larry Jet (√âbrenl√©tben √Ålmodom)",
     "hossz": 4.36,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
       "Heavy Metal",
-      "ProgresszÌv Rock"
+      "Progressz√≠v Rock"
     ],
     "kiadva": true,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 11,
     "cim": "Velem vagy Ellenem",
     "hossz": 4.28,
-    "szerzo": "P·li D·vid;Bukits Gergı",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "P√°li D√°vid;Bukits Gerg≈ë",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
       "Hard Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 12,
-    "cim": "B˚nbak",
+    "cim": "BÔøΩnbak",
     "hossz": 5.10,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
-      "Thrash Met·l"
+      "Thrash Met√°l"
     ],
     "kiadva": false,
-    "keletkezÈs": 2023
+    "keletkezes": 2023
   },
   {
     "id": 13,
-    "cim": "Fogs·gban vagy",
+    "cim": "Fogs√°gban vagy",
     "hossz": 4.20,
-    "szerzo": "Nagy PÈter",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "Nagy P√©ter",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "Heavy Met·l"
+      "Heavy Met√°l"
     ],
     "kiadva": false,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 14,
     "cim": "Megesik",
     "hossz": 4.16,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
       "Hard Rock",
-      "AlternatÌv Rock"
+      "Alternat√≠v Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2024
+    "keletkezes": 2024
   },
   {
     "id": 15,
-    "cim": "Mil·nÛ",
+    "cim": "Mil√°n√≥",
     "hossz": 3.36,
-    "szerzo": "P·li D·vid",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "P√°li D√°vid",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "AlternatÌv Rock",
+      "Alternat√≠v Rock",
       "Rock And Roll"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 16,
-    "cim": "IAW (Nincsen tov·bb)",
+    "cim": "IAW (Nincsen tovÔøΩbb)",
     "hossz": 5.46,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "P·li D·vid",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "P√°li D√°vid",
     "stilus": [
-      "ProgresszÌv Rock"
+      "Progressz√≠v Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   },
   {
     "id": 17,
-    "cim": "M¡V",
+    "cim": "M√ÅV",
     "hossz": 4.41,
-    "szerzo": "Bukits Gergı",
-    "szovegiro": "Bukits Gergı",
+    "szerzo": "Bukits Gerg≈ë",
+    "szovegiro": "Bukits Gerg≈ë",
     "stilus": [
-      "ProgresszÌv Rock",
+      "Progressz√≠v Rock",
       "Hard Rock"
     ],
     "kiadva": false,
-    "keletkezÈs": 2025
+    "keletkezes": 2025
   }
 ]
