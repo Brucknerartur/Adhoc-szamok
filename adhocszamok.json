@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "cim": "Az Utols� L�tforma",
+    "cim": "Az Utolsó Létforma",
     "hossz": 4.09,
-    "szerzo": "Nagy P�ter",
+    "szerzo": "Nagy Péter",
     "szovegiro": "Bukits Gergo",
     "stilus": [
-      "Heavy Met�l",
-      "Met�l"
+      "Heavy Metál",
+      "Metál"
     ],
     "kiadva": true,
     "keletkezes": 2023
   },
   {
     "id": 2,
-    "cim": "Porcic�k",
+    "cim": "Porcicák",
     "hossz": 2.13,
-    "szerzo": "Nagy P�ter",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Alternat�v Rock",
-      "Progressz�v Rock"
+      "Alternatív Rock",
+      "Progresszív Rock"
     ],
     "kiadva": false,
     "keletkezes": 2025
   },
   {
     "id": 3,
-    "cim": "Telev�zi�",
+    "cim": "Televízió",
     "hossz": 5.03,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
-      "Progressz�v Rock",
+      "Progresszív Rock",
       "Hard Rock"
     ],
     "kiadva": false,
@@ -40,12 +40,12 @@
   },
   {
     "id": 4,
-    "cim": "Felfordul�s",
+    "cim": "Felfordulás",
     "hossz": 3.07,
-    "szerzo": "P�li D�vid",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Alternat�v Rock",
+      "Alternatív Rock",
       "Punk"
     ],
     "kiadva": true,
@@ -53,10 +53,10 @@
   },
   {
     "id": 5,
-    "cim": "Ha nem lenn�l",
+    "cim": "Ha nem lennél",
     "hossz": 3.36,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
       "Rock And Roll",
       "Hard Rock"
@@ -66,37 +66,37 @@
   },
   {
     "id": 6,
-    "cim": "Nem besz�l�nk r�la",
+    "cim": "Nem beszélünk róla",
     "hossz": 4.06,
-    "szerzo": "P�li D�vid",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Alternat�v Rock"
+      "Alternatív Rock"
     ],
     "kiadva": false,
     "keletkezes": 2025
   },
   {
     "id": 7,
-    "cim": "F�c�nvad�szat",
+    "cim": "Fácánvadászat",
     "hossz": 4.21,
-    "szerzo": "Nagy P�ter",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
-      "Alternat�v Rock",
-      "Progressz�v Rock"
+      "Alternatív Rock",
+      "Progresszív Rock"
     ],
     "kiadva": false,
     "keletkezes": 2024
   },
   {
     "id": 8,
-    "cim": "F�c�nvad�szat pt.3",
+    "cim": "Fácánvadászat pt.3",
     "hossz": 3.06,
-    "szerzo": "Nagy P�ter",
-    "szovegiro": "P�li D�vid;Nagy P�ter",
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid;Nagy Péter",
     "stilus": [
-      "Alternat�v Rock",
+      "Alternatív Rock",
       "Hard Rock"
     ],
     "kiadva": false,
@@ -106,23 +106,23 @@
     "id": 9,
     "cim": "Otthonom",
     "hossz": 5.36,
-    "szerzo": "Nagy P�ter",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Thrash Met�l"
+      "Thrash Metál"
     ],
     "kiadva": true,
     "keletkezes": 2024
   },
   {
     "id": 10,
-    "cim": "Larry Jet (�brenl�tben �lmodom)",
+    "cim": "Larry Jet (Ébrenlétben Álmodom)",
     "hossz": 4.36,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
       "Heavy Metal",
-      "Progressz�v Rock"
+      "Progresszív Rock"
     ],
     "kiadva": true,
     "keletkezes": 2024
@@ -131,8 +131,8 @@
     "id": 11,
     "cim": "Velem vagy Ellenem",
     "hossz": 4.28,
-    "szerzo": "P�li D�vid;Bukits Gerg�",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Páli Dávid;Bukits Gergő",
+    "szovegiro": "Páli Dávid",
     "stilus": [
       "Hard Rock"
     ],
@@ -143,22 +143,22 @@
     "id": 12,
     "cim": "B�nbak",
     "hossz": 5.10,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
-      "Thrash Met�l"
+      "Thrash Metál"
     ],
     "kiadva": false,
     "keletkezes": 2023
   },
   {
     "id": 13,
-    "cim": "Fogs�gban vagy",
+    "cim": "Fogságban vagy",
     "hossz": 4.20,
-    "szerzo": "Nagy P�ter",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Nagy Péter",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Heavy Met�l"
+      "Heavy Metál"
     ],
     "kiadva": false,
     "keletkezes": 2024
@@ -167,23 +167,23 @@
     "id": 14,
     "cim": "Megesik",
     "hossz": 4.16,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
       "Hard Rock",
-      "Alternat�v Rock"
+      "Alternatív Rock"
     ],
     "kiadva": false,
     "keletkezes": 2024
   },
   {
     "id": 15,
-    "cim": "Mil�n�",
+    "cim": "Milánó",
     "hossz": 3.36,
-    "szerzo": "P�li D�vid",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Páli Dávid",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Alternat�v Rock",
+      "Alternatív Rock",
       "Rock And Roll"
     ],
     "kiadva": false,
@@ -193,22 +193,22 @@
     "id": 16,
     "cim": "IAW (Nincsen tov�bb)",
     "hossz": 5.46,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "P�li D�vid",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Páli Dávid",
     "stilus": [
-      "Progressz�v Rock"
+      "Progresszív Rock"
     ],
     "kiadva": false,
     "keletkezes": 2025
   },
   {
     "id": 17,
-    "cim": "M�V",
+    "cim": "MÁV",
     "hossz": 4.41,
-    "szerzo": "Bukits Gerg�",
-    "szovegiro": "Bukits Gerg�",
+    "szerzo": "Bukits Gergő",
+    "szovegiro": "Bukits Gergő",
     "stilus": [
-      "Progressz�v Rock",
+      "Progresszív Rock",
       "Hard Rock"
     ],
     "kiadva": false,
