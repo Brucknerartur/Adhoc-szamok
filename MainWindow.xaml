@@ -5,8 +5,228 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adhoc_szamok"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="900"
+        ResizeMode="NoResize"
+        Background="#181735"
+        FontSize="20"
+        >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#0f0f2D"
+              Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Ad Hoc szamok"
+                       Grid.Column="0"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Medium"
+                       Grid.ColumnSpan="2"
+                       FontSize="40"
+                       />
+
+
+        </Grid>
+        <ListBox Grid.Column="0"
+                 Grid.Row="2"
+                 MaxWidth="300"
+                 MaxHeight="150"
+                 Name="szamokList">
+            <ListBoxItem>
+                <Grid HorizontalAlignment="Stretch" Width="280">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Ad Hoc"
+                           HorizontalAlignment="Left"/>
+
+                    <Button Content="Módosítás"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Padding="3"
+                                />
+                </Grid>
+            </ListBoxItem>
+
+        </ListBox>
+
+        <TextBlock 
+            Text="Ad Hoc - Kivalasztott szam"
+            Foreground="White"
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            FontWeight="Medium"
+            FontSize="20"
+            Margin="10"
+            />
+        <Border
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="center"
+            HorizontalAlignment="Center"
+            CornerRadius="8"
+            >
+            <Button
+                Width="100"
+                Height="40"
+                Content="Új"
+                Padding="3"
+                Name="ujSzam">
+            </Button>
+        </Border>
+
+        <Grid
+            Grid.Row="3"
+            Grid.RowSpan="1"
+            Grid.ColumnSpan="2"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Text="Ad Hoc"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+
+            <TextBlock
+                Text="Szám címe"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="hossza"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="keletkezése"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="3"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="Ki van-e adva"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="4"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="Hossz:"
+                Foreground="White"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" 
+                />
+            <TextBlock
+                Text="Keletkezés:"
+                Foreground="White"
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="Szerző:"
+                Foreground="White"
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="Szöveg író:"
+                Foreground="White"
+                Grid.Row="2"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+            <TextBlock
+                Text="Cím:"
+                Foreground="White"
+                Grid.Row="1"
+                Grid.Column="4"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+
+            <CheckBox
+                    Content="Ki van-e adva"
+                    Foreground="White"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    IsEnabled="False"
+                    VerticalContentAlignment="Center"
+                    />
+        </Grid>
+        <TextBlock
+            Text="Szűrés műfaj alapján"
+            Grid.Row="4"
+            Foreground="White"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            />
+        <ComboBox
+            Name="comboStilus"
+            Grid.Row="5">
+            
+        </ComboBox>
+        <TextBlock
+            Text="Lorem"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Foreground="White"
+            Grid.Column="1"
+            Grid.Row="5"
+            />
     </Grid>
 </Window>
