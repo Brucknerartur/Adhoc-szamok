@@ -37,7 +37,6 @@
         </Grid>
         <ListBox
                  Name="szamokList" 
-                 SelectionChanged="szamokList_SelectionChanged"
                  Style="{StaticResource szamokList}">
             <ListBoxItem Style="{StaticResource szamokListItem}">
                 <Grid Style="{StaticResource szamokListItemGrid}">

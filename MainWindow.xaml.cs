@@ -71,9 +71,9 @@ namespace Adhoc_szamok
                 Grid.SetRow(b, 0);
                 grid.Children.Add(b);
 
-                
 
-                SzamokList.Items.Add(grid);
+
+                szamokList.Items.Add(grid);
                 //item.Children.Add(szam.Cim);
                   
             }
