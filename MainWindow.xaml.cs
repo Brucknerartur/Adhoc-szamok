@@ -75,7 +75,7 @@ namespace Adhoc_szamok
 
                 SzamokList.Items.Add(grid);
                 //item.Children.Add(szam.Cim);
-
+                  
             }
         }
     }
