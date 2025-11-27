@@ -8,6 +8,7 @@
         Title="MainWindow" Height="700" Width="900"
         Background="#181735"
         FontSize="20"
+        Loaded="Window_Loaded"
         >
     <Grid>
         <Grid.RowDefinitions>

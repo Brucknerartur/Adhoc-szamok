@@ -22,7 +22,7 @@ namespace Adhoc_szamok
         {
             InitializeComponent();
 
-            //TODO: Listbox + Combo feltöltés
+            //TODO: Combo feltöltés
             //Onclick események
             //Új/módosítás
 
@@ -43,39 +43,52 @@ namespace Adhoc_szamok
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            List<string> styles = new List<string>();
             foreach (var szam in szamok)
             {
+                ListBoxItem item = new ListBoxItem();
+                item.Style = (Style)this.Resources["szamokListItem"];
 
                 Grid grid = new Grid();
                 grid.RowDefinitions.Add(new RowDefinition());
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star)});
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2, GridUnitType.Auto)});
-                grid.HorizontalAlignment = HorizontalAlignment.Stretch;
-                grid.Width = 280;
+                grid.Style = (Style)this.Resources["szamokListItemGrid"];
 
 
                 Label label = new Label();
                 label.Content = szam.Cim;
-                label.HorizontalAlignment = HorizontalAlignment.Left;
+                label.Style = (Style)this.Resources["szamokListItemGridLabel"];
                 Grid.SetColumn(label, 0);
                 Grid.SetRow(label, 0);
-                grid.Children.Add(label);
 
+                grid.Children.Add(label);
 
                 Button b = new Button();
                 b.Content = "Módosítás";
-                b.VerticalAlignment = VerticalAlignment.Center;
-                b.Padding = new Thickness(3, 3, 3, 3);
+                b.Style = (Style)this.Resources["szamokListItemGridButton"];
                 b.SetValue(Grid.ColumnProperty, 1);
                 Grid.SetColumn(b, 1);
                 Grid.SetRow(b, 0);
                 grid.Children.Add(b);
 
 
+                item.Content = grid;
 
-                szamokList.Items.Add(grid);
-                //item.Children.Add(szam.Cim);
-                  
+
+                szamokList.Items.Add(item);
+
+                foreach (var style in szam.Stilus!)
+                {
+                    if (!styles.Contains(style))
+                    {
+                        styles.Add(style);
+                    }
+                }
+            }
+            foreach (var style in styles)
+            {
+                //TODO
             }
         }
     }
