@@ -44,6 +44,7 @@ namespace Adhoc_szamok
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<string> styles = new List<string>();
+            szamokList.Items.Clear();
             foreach (var szam in szamok)
             {
                 ListBoxItem item = new ListBoxItem();
@@ -74,7 +75,7 @@ namespace Adhoc_szamok
 
 
                 item.Content = grid;
-
+                item.Name = szam.Cim.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "");
 
                 szamokList.Items.Add(item);
 
@@ -89,6 +90,25 @@ namespace Adhoc_szamok
             foreach (var style in styles)
             {
                 //TODO
+            }
+        }
+
+        private void szamokList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (szamokList.SelectedItem is ListBoxItem item)
+            {
+                foreach (var sz in szamok)
+                {
+                    if (sz.Cim.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
+                    {
+                        selectedSongTitle.Text = sz.Cim;
+                        selectedSongLenght.Text = sz.Hossz.ToString().Replace(",", ":");
+                        selectedSongInstrumentAuthor.Text = sz.Szerzo;
+                        selectedSongLyricsAuthor.Text = sz.Szovegiro;
+                        selectedSongOrigin.Text = sz.Keletkezes.ToString();
+                        selectedSongIsItOut.IsChecked = sz.Kiadva;
+                    }
+                }
             }
         }
     }

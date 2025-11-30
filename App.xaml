@@ -25,7 +25,7 @@
         <Style TargetType="{x:Type ListBox}" x:Key="szamokList">
             <Setter Property="Grid.Row" Value="1"/>
             <Setter Property="Grid.Column" Value="0"/>
-            <Setter Property="Margin" Value="30,30,30,30"/>
+            <Setter Property="Margin" Value="20,20,0,20"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -88,9 +88,10 @@
         </Style>
 
         <Style TargetType="{x:Type TextBox}" x:Key="selectedSongInput">
-            <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="IsEnabled" Value="False"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -109,6 +110,55 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                      
+                            <StackPanel Orientation="Horizontal">
+                            <Grid Width="20" Height="20" Margin="0,0,5,0">
+
+                                <Border x:Name="Box"
+                                CornerRadius="3"
+                                BorderThickness="2"
+                                BorderBrush="Gray"
+                                Background="Transparent"/>
+
+                                <Path x:Name="GreenCheck"
+                              Data="M 5 11 L 9 15 L 17 5"
+                              Stroke="Green"
+                              StrokeThickness="2"
+                              Visibility="Collapsed"/>
+
+                            <Path x:Name="RedX"
+                              Data="M 4 4 L 16 16 M 16 4 L 4 16"
+                              Stroke="Red"
+                              StrokeThickness="2"
+                              Visibility="Collapsed"/>
+                            </Grid>
+
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="GreenCheck" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="RedX" Property="Visibility" Value="Collapsed"/>
+                                <Setter TargetName="Box" Property="Background" Value="#CCDDFFCC"/>
+                                <Setter TargetName="Box" Property="BorderBrush" Value="Green"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="GreenCheck" Property="Visibility" Value="Collapsed"/>
+                                <Setter TargetName="RedX" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="Box" Property="Background" Value="#CCFFDDCC"/>
+                                <Setter TargetName="Box" Property="BorderBrush" Value="Red"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="{x:Type TextBlock}" x:Key="searchSongTitle">

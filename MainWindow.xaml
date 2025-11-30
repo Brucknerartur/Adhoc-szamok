@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adhoc_szamok"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="900"
+        Title="MainWindow"  
+        MinWidth="1250"
+        MinHeight="800"
         Background="#181735"
         FontSize="20"
         Loaded="Window_Loaded"
@@ -37,8 +39,9 @@
 
         </Grid>
         <ListBox
-                 Name="szamokList" 
-                 Style="{StaticResource szamokList}">
+                Name="szamokList" 
+                Style="{StaticResource szamokList}" 
+                SelectionChanged="szamokList_SelectionChanged">
             <ListBoxItem Style="{StaticResource szamokListItem}">
                 <Grid Style="{StaticResource szamokListItemGrid}">
                     <Grid.ColumnDefinitions>
@@ -153,6 +156,7 @@
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
+                Name="selectedSongLenght"
                 Style="{StaticResource selectedSongInput}"/>
             <TextBlock
                 Text="Keletkezés:"
@@ -163,6 +167,7 @@
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
+                Name="selectedSongOrigin"
                 Style="{StaticResource selectedSongInput}"/>
             <TextBlock
                 Text="Szerző:"
@@ -173,6 +178,7 @@
             <TextBox
                 Grid.Row="1"
                 Grid.Column="3"
+                Name="selectedSongInstrumentAuthor"
                 Style="{StaticResource selectedSongInput}"/>
             <TextBlock
                 Text="Szöveg író:"
@@ -183,6 +189,7 @@
             <TextBox
                 Grid.Row="2"
                 Grid.Column="3"
+                Name="selectedSongLyricsAuthor"
                 Style="{StaticResource selectedSongInput}"/>
             <TextBlock
                 Text="Cím:"
@@ -193,13 +200,15 @@
             <TextBox
                 Grid.Row="1"
                 Grid.Column="5"
+                Name="selectedSongTitle"
                 Style="{StaticResource selectedSongInput}"/>
-
+            
             <CheckBox
                     Content="Ki van-e adva"
                     IsEnabled="False"
                     Grid.Row="3"
                     Grid.Column="0"
+                    Name="selectedSongIsItOut"
                     Style="{StaticResource selectedSongCheckBox}"
                     />
         </Grid>
