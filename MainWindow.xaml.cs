@@ -23,8 +23,8 @@ namespace Adhoc_szamok
             InitializeComponent();
 
             //TODO: Combo feltöltés
-            //Onclick események
-            //Új/módosítás
+            //Onclick események (started)
+            //Új/módosítás (started)
 
         }
 
@@ -69,6 +69,7 @@ namespace Adhoc_szamok
                 b.Content = "Módosítás";
                 b.Style = (Style)FindResource("szamokListItemGridButton");
                 b.SetValue(Grid.ColumnProperty, 1);
+                b.Click += Modify;
                 Grid.SetColumn(b, 1);
                 Grid.SetRow(b, 0);
                 grid.Children.Add(b);
@@ -93,7 +94,49 @@ namespace Adhoc_szamok
             }
         }
 
+        private void Modify(object sender, RoutedEventArgs e)
+        {
+            displaySongInfo();
+            if (sender is Button btn)
+            {
+                var parentGrid = VisualTreeHelper.GetParent(btn);
+
+                while (parentGrid != null && !(parentGrid is ListBoxItem))
+                {
+                    parentGrid = VisualTreeHelper.GetParent(parentGrid);
+                }
+
+                if (parentGrid is ListBoxItem lbi)
+                {
+                    lbi.IsSelected = true;
+                }
+                enableInputs(true);
+            }
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            //TODO
+        }
+
+        private void enableInputs(bool value)
+        {
+            selectedSongTitle.IsEnabled = value;
+            selectedSongLenght.IsEnabled = value;
+            selectedSongInstrumentAuthor.IsEnabled = value;
+            selectedSongLyricsAuthor.IsEnabled = value;
+            selectedSongOrigin.IsEnabled = value;
+            selectedSongIsItOut.IsEnabled = value;
+            saveButton.IsEnabled = value;
+        }
+
         private void szamokList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            displaySongInfo();
+            enableInputs(false);
+        }
+
+        private void displaySongInfo()
         {
             if (szamokList.SelectedItem is ListBoxItem item)
             {

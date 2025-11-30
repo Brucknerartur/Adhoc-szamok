@@ -211,6 +211,14 @@
                     Name="selectedSongIsItOut"
                     Style="{StaticResource selectedSongCheckBox}"
                     />
+            <Button
+                Content="Mentés"
+                IsEnabled="False"
+                Grid.Column="5"
+                Grid.Row="3"
+                Name="saveButton"
+                Click="Save"
+                Style="{StaticResource selectedSongButton}"/>
         </Grid>
         <TextBlock
             Text="Szűrés műfaj alapján"
