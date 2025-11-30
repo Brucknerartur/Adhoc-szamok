@@ -47,26 +47,26 @@ namespace Adhoc_szamok
             foreach (var szam in szamok)
             {
                 ListBoxItem item = new ListBoxItem();
-                item.Style = (Style)this.Resources["szamokListItem"];
+                item.Style = (Style)FindResource("szamokListItem");
 
                 Grid grid = new Grid();
                 grid.RowDefinitions.Add(new RowDefinition());
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star)});
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2, GridUnitType.Auto)});
-                grid.Style = (Style)this.Resources["szamokListItemGrid"];
+                grid.Style = (Style)FindResource("szamokListItemGrid");
 
 
                 Label label = new Label();
                 label.Content = szam.Cim;
-                label.Style = (Style)this.Resources["szamokListItemGridLabel"];
-                Grid.SetColumn(label, 0);
+                label.Style = (Style)FindResource("szamokListItemGridLabel");
+                    Grid.SetColumn(label, 0);
                 Grid.SetRow(label, 0);
 
                 grid.Children.Add(label);
 
                 Button b = new Button();
                 b.Content = "Módosítás";
-                b.Style = (Style)this.Resources["szamokListItemGridButton"];
+                b.Style = (Style)FindResource("szamokListItemGridButton");
                 b.SetValue(Grid.ColumnProperty, 1);
                 Grid.SetColumn(b, 1);
                 Grid.SetRow(b, 0);
