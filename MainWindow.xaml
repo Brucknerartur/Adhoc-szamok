@@ -8,10 +8,12 @@
         Title="MainWindow"  
         MinWidth="1250"
         MinHeight="800"
-        Background="#181735"
         FontSize="20"
         Loaded="Window_Loaded"
         >
+    <Window.Background>
+        <SolidColorBrush Color="#FFE61414" Opacity="0.4"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
@@ -25,10 +27,18 @@
         </Grid.ColumnDefinitions>
 
         <!--Cim-->
-        <Border Background="#0f0f2D"
-                BorderBrush="#0f0f2D"
-                Grid.ColumnSpan="2"
+        <Border
+                Grid.ColumnSpan="2" CornerRadius="0,0,50,50"
                 >
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="1"/>
+            </Border.Background>
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -45,24 +55,22 @@
                     Name="szamokList" 
                     Style="{StaticResource szamokList}" 
                     SelectionChanged="szamokList_SelectionChanged">
-                <ListBoxItem Style="{StaticResource szamokListItem}">
-                    <Grid Style="{StaticResource szamokListItemGrid}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Ad Hoc"
+            <ListBoxItem Style="{StaticResource szamokListItem}">
+                <Grid Style="{StaticResource szamokListItemGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Ad Hoc"
                                Style="{StaticResource szamokListItemGridLabel}"/>
 
-                        <Button Content="Módosítás"
+                    <Button Content="Módosítás"
                                 Style="{StaticResource szamokListItemGridButton}"/>
-                    </Grid>
-                </ListBoxItem>
+                </Grid>
+            </ListBoxItem>
 
-            </ListBox>
-        <TextBlock 
-            Text="Ad Hoc - Kivalasztott szam"
-            Style="{StaticResource selectedSongTextblock}"/>
+        </ListBox>
+
         <Button
             Content="Új"
             Name="ujSzam"
@@ -119,7 +127,7 @@
                 Grid.Column="1"
                 Name="selectedSongLenght"
                 Style="{StaticResource selectedSongInput}"/>
-            
+
             <TextBlock
                 Text="Keletkezés:"
                 Grid.Row="3"
@@ -131,7 +139,7 @@
                 Grid.Column="1"
                 Name="selectedSongOrigin"
                 Style="{StaticResource selectedSongInput}"/>
-            
+
             <TextBlock
                 Text="Szerző:"
                 Grid.Row="4"
@@ -143,7 +151,7 @@
                 Grid.Column="1"
                 Name="selectedSongInstrumentAuthor"
                 Style="{StaticResource selectedSongInput}"/>
-            
+
             <TextBlock
                 Text="Szöveg író:"
                 Grid.Row="5"
