@@ -229,15 +229,22 @@
         <ComboBox
             Name="comboStilus"
             Grid.Row="4"
-            Style="{StaticResource searchSongCombobox}">
+            Style="{StaticResource searchSongCombobox}"
+            SelectedIndex="0" 
+            SelectionChanged="comboStilus_SelectionChanged">
             <ComboBoxItem
-                Content="Asd"/>
+                Content="Kérem válasszon egy műfajt"
+                Name="DefComb"/>
         </ComboBox>
-        <TextBlock
-            Text="Lorem"
+        <StackPanel
+            Name="StyleStackPanel"
             Grid.Column="1"
             Grid.Row="4"
-            Style="{StaticResource searchSongTextblock}"
-            />
+            Style="{StaticResource searchSongStackPanel}">
+            <TextBlock
+                Text="Kérem válasszon egy műfajt"
+                Name="Default"
+                Style="{StaticResource searchSongTextblock}"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -93,7 +92,10 @@ namespace Adhoc_szamok
             }
             foreach (var style in styles)
             {
-                //TODO
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = style;
+                newItem.Name = $"{style[0]}{style[1]}{style[2]}{style[3]}";
+                comboStilus.Items.Add(newItem);
             }
             selectedSongLenght.Text = "00:00";
         }
@@ -228,6 +230,38 @@ namespace Adhoc_szamok
                     }
                 }
             }
+        }
+
+        private void comboStilus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StyleStackPanel != null)
+            {
+                StyleStackPanel.Children.Clear();
+                comboStilus.Items.Remove(DefComb);
+                ComboBoxItem selected = (ComboBoxItem)comboStilus.SelectedItem;
+                string name = selected.Name as string;
+
+                foreach (var sz in szamok)
+                {
+                    TextBlock selectedGenre = new TextBlock();
+                    selectedGenre.Style = (Style)FindResource("searchSongTextblock");
+                    selectedGenre.Text = "";
+                    foreach (var stilo in sz.Stilus!)
+                    {
+                        if (stilo != null && $"{stilo[0]}{stilo[1]}{stilo[2]}{stilo[3]}" == name)
+                        {
+                            selectedGenre.Text = sz.Cim;
+                        }
+                    }
+                    if(selectedGenre.Text != "")
+                    {
+                        StyleStackPanel.Children.Add(selectedGenre);    
+                    }
+
+                }
+                
+            }
+            
         }
     }
 }

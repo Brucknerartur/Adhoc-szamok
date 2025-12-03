@@ -178,10 +178,15 @@
             </Style.Resources>
         </Style>
 
-        <Style TargetType="{x:Type TextBlock}" x:Key="searchSongTextblock">
+        <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="searchSongTextblock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="25"/>
         </Style>
     </Application.Resources>
 </Application>
