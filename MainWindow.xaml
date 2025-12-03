@@ -74,6 +74,7 @@
         <Button
             Content="Új"
             Name="ujSzam"
+            Click="NewSong"
             Style="{StaticResource selectedSongButton}">
         </Button>
 
