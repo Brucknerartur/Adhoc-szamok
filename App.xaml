@@ -25,7 +25,7 @@
         <Style TargetType="{x:Type ListBox}" x:Key="szamokList">
             <Setter Property="Grid.Row" Value="1"/>
             <Setter Property="Grid.Column" Value="0"/>
-            <Setter Property="Margin" Value="20,20,0,20"/>
+            <Setter Property="Margin" Value="20,20,20,20"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
