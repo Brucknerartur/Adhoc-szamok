@@ -14,10 +14,8 @@
         >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="200"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -26,38 +24,42 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#0f0f2D"
-              Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <!--Cim-->
+        <Border Background="#0f0f2D"
+                BorderBrush="#0f0f2D"
+                Grid.ColumnSpan="2"
+                >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Ad Hoc szamok"
-                       Style="{StaticResource Title}"/>
+                <TextBlock 
+                           Text="Ad Hoc szamok"
+                           Style="{StaticResource Title}"/>
 
+            </Grid>
+        </Border>
 
-        </Grid>
         <ListBox
-                Name="szamokList" 
-                Style="{StaticResource szamokList}" 
-                SelectionChanged="szamokList_SelectionChanged">
-            <ListBoxItem Style="{StaticResource szamokListItem}">
-                <Grid Style="{StaticResource szamokListItemGrid}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Ad Hoc"
-                           Style="{StaticResource szamokListItemGridLabel}"/>
+                    Name="szamokList" 
+                    Style="{StaticResource szamokList}" 
+                    SelectionChanged="szamokList_SelectionChanged">
+                <ListBoxItem Style="{StaticResource szamokListItem}">
+                    <Grid Style="{StaticResource szamokListItemGrid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Ad Hoc"
+                               Style="{StaticResource szamokListItemGridLabel}"/>
 
-                    <Button Content="Módosítás"
-                            Style="{StaticResource szamokListItemGridButton}"/>
-                </Grid>
-            </ListBoxItem>
+                        <Button Content="Módosítás"
+                                Style="{StaticResource szamokListItemGridButton}"/>
+                    </Grid>
+                </ListBoxItem>
 
-        </ListBox>
-
+            </ListBox>
         <TextBlock 
             Text="Ad Hoc - Kivalasztott szam"
             Style="{StaticResource selectedSongTextblock}"/>
@@ -68,15 +70,12 @@
             Style="{StaticResource selectedSongButton}">
         </Button>
 
+
         <Grid
             Grid.Row="2"
             Grid.RowSpan="1"
-            Grid.ColumnSpan="2"
-            >
+            Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -84,130 +83,84 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-
-            <TextBlock
-                Text="Ad Hoc"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="0"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                />
-
-            <TextBlock
-                Text="Szám címe"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                />
-            <TextBlock
-                Text="hossza"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="2"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                />
-            <TextBlock
-                Text="keletkezése"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="3"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                />
-            <TextBlock
-                Text="Ki van-e adva"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="4"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                />
-        </Grid>
-        <Grid
-            Grid.Row="2"
-            Grid.RowSpan="1"
-            Grid.ColumnSpan="2"
-            Margin="50,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
+
             <TextBlock
-                Text="Hossz:"
-                Grid.Row="1"
-                Grid.Column="0"
-                Style="{StaticResource selectedSongLabel}"
-                />
-            <TextBox
-                Grid.Row="1"
-                Grid.Column="1"
-                Name="selectedSongLenght"
-                Style="{StaticResource selectedSongInput}"/>
-            <TextBlock
-                Text="Keletkezés:"
-                Grid.Row="2"
-                Grid.Column="0"
-                Style="{StaticResource selectedSongLabel}"
-                />
-            <TextBox
-                Grid.Row="2"
-                Grid.Column="1"
-                Name="selectedSongOrigin"
-                Style="{StaticResource selectedSongInput}"/>
-            <TextBlock
-                Text="Szerző:"
-                Grid.Row="1"
-                Grid.Column="2"
-                Style="{StaticResource selectedSongLabel}"
-                />
-            <TextBox
-                Grid.Row="1"
-                Grid.Column="3"
-                Name="selectedSongInstrumentAuthor"
-                Style="{StaticResource selectedSongInput}"/>
-            <TextBlock
-                Text="Szöveg író:"
-                Grid.Row="2"
-                Grid.Column="2"
-                Style="{StaticResource selectedSongLabel}"
-                />
-            <TextBox
-                Grid.Row="2"
-                Grid.Column="3"
-                Name="selectedSongLyricsAuthor"
-                Style="{StaticResource selectedSongInput}"/>
+            Text="Adatok"
+            Grid.Row="0"
+                Grid.ColumnSpan="2"
+            Style="{StaticResource searchSongTitle}"
+            />
+
             <TextBlock
                 Text="Cím:"
                 Grid.Row="1"
-                Grid.Column="4"
+                Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
             <TextBox
                 Grid.Row="1"
-                Grid.Column="5"
+                Grid.Column="1"
                 Name="selectedSongTitle"
                 Style="{StaticResource selectedSongInput}"/>
+
+
+            <TextBlock
+                Text="Hossz:"
+                Grid.Row="2"
+                Grid.Column="0"
+                Style="{StaticResource selectedSongLabel}"
+                />
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Name="selectedSongLenght"
+                Style="{StaticResource selectedSongInput}"/>
             
+            <TextBlock
+                Text="Keletkezés:"
+                Grid.Row="3"
+                Grid.Column="0"
+                Style="{StaticResource selectedSongLabel}"
+                />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Name="selectedSongOrigin"
+                Style="{StaticResource selectedSongInput}"/>
+            
+            <TextBlock
+                Text="Szerző:"
+                Grid.Row="4"
+                Grid.Column="0"
+                Style="{StaticResource selectedSongLabel}"
+                />
+            <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                Name="selectedSongInstrumentAuthor"
+                Style="{StaticResource selectedSongInput}"/>
+            
+            <TextBlock
+                Text="Szöveg író:"
+                Grid.Row="5"
+                Grid.Column="0"
+                Style="{StaticResource selectedSongLabel}"
+                />
+            <TextBox
+                Grid.Row="5"
+                Grid.Column="1"
+                Name="selectedSongLyricsAuthor"
+                Style="{StaticResource selectedSongInput}"/>
+
             <CheckBox
                     Content="Ki van-e adva"
                     IsEnabled="False"
-                    Grid.Row="3"
+                    Grid.Row="6"
                     Grid.Column="0"
                     Name="selectedSongIsItOut"
                     Style="{StaticResource selectedSongCheckBox}"
@@ -215,36 +168,50 @@
             <Button
                 Content="Mentés"
                 IsEnabled="False"
-                Grid.Column="5"
-                Grid.Row="3"
+                Grid.Column="1"
+                Grid.Row="6"
                 Name="saveButton"
                 Click="Save"
                 Style="{StaticResource selectedSongButton}"/>
         </Grid>
-        <TextBlock
-            Text="Szűrés műfaj alapján"
-            Grid.Row="3"
-            Style="{StaticResource searchSongTitle}"
-            />
-        <ComboBox
+
+        <Grid
+            Grid.Row="2"
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Text="Szűrés műfaj alapján"
+                Grid.Row="0"
+                Style="{StaticResource searchSongTitle}"
+                />
+            <ComboBox
             Name="comboStilus"
-            Grid.Row="4"
+            Grid.Row="1"
             Style="{StaticResource searchSongCombobox}"
             SelectedIndex="0" 
             SelectionChanged="comboStilus_SelectionChanged">
-            <ComboBoxItem
+                <ComboBoxItem
                 Content="Kérem válasszon egy műfajt"
                 Name="DefComb"/>
-        </ComboBox>
-        <StackPanel
+            </ComboBox>
+            <StackPanel
             Name="StyleStackPanel"
             Grid.Column="1"
-            Grid.Row="4"
+            Grid.Row="2"
             Style="{StaticResource searchSongStackPanel}">
-            <TextBlock
+                <TextBlock
                 Text="Kérem válasszon egy műfajt"
                 Name="Default"
                 Style="{StaticResource searchSongTextblock}"/>
-        </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
