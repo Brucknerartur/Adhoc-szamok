@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -125,15 +126,18 @@ namespace Adhoc_szamok
         {
             if (szamokList.SelectedItem == null)
             {
-                Szamok sz = new Szamok();
-                sz.Cim = selectedSongTitle.Text;
-                sz.Szerzo = selectedSongInstrumentAuthor.Text;
-                sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
-                sz.Szovegiro = selectedSongLyricsAuthor.Text;
-                sz.Kiadva = (bool)selectedSongIsItOut.IsChecked;
-                sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
-                using var file = File.Create(filename);
-                JsonSerializer.Serialize(file, szamok, options);
+                if (LenghtErrorCheck(selectedSongLenght.Text))
+                {
+                    Szamok sz = new Szamok();
+                    sz.Cim = selectedSongTitle.Text;
+                    sz.Szerzo = selectedSongInstrumentAuthor.Text;
+                    sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
+                    sz.Szovegiro = selectedSongLyricsAuthor.Text;
+                    sz.Kiadva = (bool)selectedSongIsItOut.IsChecked;
+                    sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                    using var file = File.Create(filename);
+                    JsonSerializer.Serialize(file, szamok, options);
+                }
             }
             else
             {
@@ -143,7 +147,7 @@ namespace Adhoc_szamok
                     {
                         if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
                         {
-                            if (LenghtErrorCheck(selectedSongLenght.Text) && NotFilledErrorCheck())
+                            if (LenghtErrorCheck(selectedSongLenght.Text))
                             {
                                 sz.Cim = selectedSongTitle.Text;
                                 sz.Szerzo = selectedSongInstrumentAuthor.Text;
@@ -165,6 +169,8 @@ namespace Adhoc_szamok
             var split = data.Split(':');
             if (!(int.TryParse(split[0], out var m)) || !(int.TryParse(split[1], out var s)))
             {
+                var asd = new Setter();
+                selectedSongLenght.Style.Setters.Add();
                 return false; // lenght format error
             }
             return true;
@@ -176,7 +182,7 @@ namespace Adhoc_szamok
             {
                 if (item is TextBox textBox && !string.IsNullOrEmpty(textBox.Text))
                 {
-                    return false;
+                    return false; // not everything filled in
                 }
             }
             return true;
