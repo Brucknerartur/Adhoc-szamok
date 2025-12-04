@@ -26,6 +26,7 @@ namespace Adhoc_szamok
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
+        NotEmptyValidationRule validator = new NotEmptyValidationRule();
         public string SongLenght { get; set; } = "";
         public MainWindow()
         {
@@ -153,23 +154,23 @@ namespace Adhoc_szamok
         {
             if (newSong)
             {
-                if (LenghtErrorCheck(selectedSongLenght))
+                if (LenghtErrorCheck(selectedSongLenght) && !string.IsNullOrEmpty(selectedSongOrigin.Text) && !string.IsNullOrWhiteSpace(selectedSongLenght.Text))
                 {
                     Szamok sz = new Szamok();
                     sz.Cim = selectedSongTitle.Text;
                     sz.Szerzo = selectedSongInstrumentAuthor.Text;
-                    sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
                     sz.Szovegiro = selectedSongLyricsAuthor.Text;
                     sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                     sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                    sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
                     if (selectedStyle.Text.Contains(","))
                     {
-                       var asd = new List<string>();
+                        var asd = new List<string>();
                         foreach (var item in selectedStyle.Text.Split(","))
                         {
                             if (!string.IsNullOrEmpty(item))
                             {
-                                asd.Add(item.Trim()) ;
+                                asd.Add(item.Trim());
                             }
                         }
                         sz.Stilus = asd;
@@ -180,6 +181,58 @@ namespace Adhoc_szamok
                         asd.Add(selectedStyle.Text);
                         sz.Stilus = asd;
                     }
+                    if (NotFilledErrorCheck(sz))
+                    {
+                        szamok.Add(sz);
+                        newSong = false;
+                    }
+                }
+                else
+                {
+                    if (szamokList.SelectedItem is ListBoxItem item)
+                    {
+                        foreach (var sz in szamok)
+                        {
+                            if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
+                            {
+                                if (LenghtErrorCheck(selectedSongLenght) && NotFilledErrorCheck(sz))
+                                {
+                                    sz.Cim = selectedSongTitle.Text;
+                                    sz.Szerzo = selectedSongInstrumentAuthor.Text;
+                                    sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
+                                    sz.Szovegiro = selectedSongLyricsAuthor.Text;
+                                    sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
+                                    sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                                    if (selectedStyle.Text.Contains(","))
+                                    {
+                                        var asd = new List<string>();
+                                        foreach (var qwe in selectedStyle.Text.Split(","))
+                                        {
+                                            if (!string.IsNullOrEmpty(qwe))
+                                            {
+                                                asd.Add(qwe.Trim());
+                                            }
+                                        }
+                                        sz.Stilus = asd;
+                                    }
+                                    else
+                                    {
+                                        var asd = new List<string>();
+                                        asd.Add(selectedStyle.Text);
+                                        sz.Stilus = asd;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                using var file = File.Create(filename);
+                JsonSerializer.Serialize(file, szamok, options);
+                file.Close();
+                szamok = LoadFromJson(filename);
+                LoadData();
+            }
+        }
                     szamok.Add(sz);
                     newSong = false;
                 }
@@ -241,16 +294,20 @@ namespace Adhoc_szamok
             return true;
         }
 
-        private bool NotFilledErrorCheck(Grid grid)
+        private bool NotFilledErrorCheck(Szamok szam)
         {
-            foreach (var item in grid.Children)
+            var qwe = new CultureInfo("en");
+            bool asd = validator.Validate(szam.Hossz, qwe).IsValid &&
+                validator.Validate(szam.Keletkezes, qwe).IsValid &&
+                validator.Validate(szam.Szovegiro, qwe).IsValid &&
+                validator.Validate(szam.Szerzo, qwe).IsValid &&
+                validator.Validate(szam.Cim, qwe).IsValid &&
+                validator.Validate(szam.Stilus, qwe).IsValid;
+            if (asd)
             {
-                if (item is TextBox textBox && !string.IsNullOrEmpty(textBox.Text))
-                {
-                    return false; // not everything filled in
-                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         private void DeleteSong(object sender, RoutedEventArgs e)
