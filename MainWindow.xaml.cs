@@ -162,12 +162,12 @@ namespace Adhoc_szamok
                     sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
                     if (selectedStyle.Text.Contains(","))
                     {
-                       var asd = new List<string>();
+                        var asd = new List<string>();
                         foreach (var item in selectedStyle.Text.Split(","))
                         {
                             if (!string.IsNullOrEmpty(item))
                             {
-                                asd.Add(item.Trim()) ;
+                                asd.Add(item.Trim());
                             }
                         }
                         sz.Stilus = asd;
@@ -180,56 +180,56 @@ namespace Adhoc_szamok
                     }
                     if (NotFilledErrorCheck(sz))
                     {
-                    szamok.Add(sz);
-                    newSong = false;
+                        szamok.Add(sz);
+                        newSong = false;
+                    }
                 }
-            }
-            else
-            {
-                if (szamokList.SelectedItem is ListBoxItem item)
+                else
                 {
-                    foreach (var sz in szamok)
+                    if (szamokList.SelectedItem is ListBoxItem item)
                     {
-                        if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
+                        foreach (var sz in szamok)
                         {
-                            if (LenghtErrorCheck(selectedSongLenght) && NotFilledErrorCheck(sz))
+                            if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
                             {
-                                sz.Cim = selectedSongTitle.Text;
-                                sz.Szerzo = selectedSongInstrumentAuthor.Text;
-                                sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
-                                sz.Szovegiro = selectedSongLyricsAuthor.Text;
-                                sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
-                                sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
-                                if (selectedStyle.Text.Contains(","))
+                                if (LenghtErrorCheck(selectedSongLenght) && NotFilledErrorCheck(sz))
                                 {
-                                    var asd = new List<string>();
-                                    foreach (var qwe in selectedStyle.Text.Split(","))
+                                    sz.Cim = selectedSongTitle.Text;
+                                    sz.Szerzo = selectedSongInstrumentAuthor.Text;
+                                    sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
+                                    sz.Szovegiro = selectedSongLyricsAuthor.Text;
+                                    sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
+                                    sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                                    if (selectedStyle.Text.Contains(","))
                                     {
-                                        if (!string.IsNullOrEmpty(qwe))
+                                        var asd = new List<string>();
+                                        foreach (var qwe in selectedStyle.Text.Split(","))
                                         {
-                                            asd.Add(qwe.Trim());
+                                            if (!string.IsNullOrEmpty(qwe))
+                                            {
+                                                asd.Add(qwe.Trim());
+                                            }
                                         }
+                                        sz.Stilus = asd;
                                     }
-                                    sz.Stilus = asd;
-                                }
-                                else
-                                {
-                                    var asd = new List<string>();
-                                    asd.Add(selectedStyle.Text);
-                                    sz.Stilus = asd;
+                                    else
+                                    {
+                                        var asd = new List<string>();
+                                        asd.Add(selectedStyle.Text);
+                                        sz.Stilus = asd;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                using var file = File.Create(filename);
+                JsonSerializer.Serialize(file, szamok, options);
+                file.Close();
+                szamok = LoadFromJson(filename);
+                LoadData();
             }
-            using var file = File.Create(filename);
-            JsonSerializer.Serialize(file, szamok, options);
-            file.Close();
-            szamok = LoadFromJson(filename);
-            LoadData();
         }
-
         private bool LenghtErrorCheck(TextBox data)
         {
             var split = data.Text.Split(':');
@@ -360,15 +360,15 @@ namespace Adhoc_szamok
                             selectedGenre.Text = $"- {sz.Cim}";
                         }
                     }
-                    if(selectedGenre.Text != "")
+                    if (selectedGenre.Text != "")
                     {
-                        StyleStackPanel.Children.Add(selectedGenre);    
+                        StyleStackPanel.Children.Add(selectedGenre);
                     }
 
                 }
-                
+
             }
-            
+
         }
     }
 }
