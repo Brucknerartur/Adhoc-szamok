@@ -71,12 +71,28 @@
 
         </ListBox>
 
-        <Button
-            Content="Új"
-            Name="ujSzam"
-            Click="NewSong"
-            Style="{StaticResource selectedSongButton}">
-        </Button>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button
+                Content="Új"
+                Grid.Row="0"
+                Name="ujSzam"
+                Click="NewSong"
+                Style="{StaticResource selectedSongButton}">
+            </Button>
+            <Button
+                Grid.Row="1"
+                Content="Törlés"
+                Name="szamTorol"
+                Click="DeleteSong"
+                Style="{StaticResource selectedSongButton}">
+            </Button>
+        </Grid>
 
 
         <Grid
@@ -114,7 +130,18 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Name="selectedSongTitle"
-                Style="{StaticResource selectedSongInput}"/>
+                Style="{StaticResource selectedSongInput}">
+                <TextBox.Text>
+                    <Binding Path="SongLenght"
+                     UpdateSourceTrigger="PropertyChanged"
+                     ValidatesOnExceptions="True"
+                     ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:NotEmptyValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
 
             <TextBlock
@@ -127,7 +154,21 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Name="selectedSongLenght"
-                Style="{StaticResource selectedSongInput}"/>
+                Style="{StaticResource selectedSongInput}">
+
+                <TextBox.Text>
+                    <Binding Path="SongLenght"
+                 UpdateSourceTrigger="PropertyChanged"
+                 ValidatesOnExceptions="True"
+                 ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:LenghtValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+
 
             <TextBlock
                 Text="Keletkezés:"
@@ -139,7 +180,19 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Name="selectedSongOrigin"
-                Style="{StaticResource selectedSongInput}"/>
+                Style="{StaticResource selectedSongInput}"
+                >
+                <TextBox.Text>
+                    <Binding Path="SongLenght"
+                     UpdateSourceTrigger="PropertyChanged"
+                     ValidatesOnExceptions="True"
+                     ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:NumericValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
             <TextBlock
                 Text="Szerző:"
@@ -151,7 +204,19 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 Name="selectedSongInstrumentAuthor"
-                Style="{StaticResource selectedSongInput}"/>
+                Style="{StaticResource selectedSongInput}"
+                >
+                <TextBox.Text>
+                    <Binding Path="SongLenght"
+                     UpdateSourceTrigger="PropertyChanged"
+                     ValidatesOnExceptions="True"
+                     ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:NotEmptyValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
             <TextBlock
                 Text="Szöveg író:"
@@ -163,7 +228,18 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 Name="selectedSongLyricsAuthor"
-                Style="{StaticResource selectedSongInput}"/>
+                Style="{StaticResource selectedSongInput}">
+                <TextBox.Text>
+                    <Binding Path="SongLenght"
+                     UpdateSourceTrigger="PropertyChanged"
+                     ValidatesOnExceptions="True"
+                     ValidatesOnDataErrors="True">
+                        <Binding.ValidationRules>
+                            <local:NotEmptyValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
             <CheckBox
                     Content="Ki van-e adva"

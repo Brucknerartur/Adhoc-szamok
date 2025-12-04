@@ -72,8 +72,6 @@
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="MinHeight" Value="40"/>
             <Setter Property="Padding" Value="3"/>
-            <Setter Property="Grid.Row" Value="1"/>
-            <Setter Property="Grid.Column" Value="11"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Style.Resources>
@@ -88,18 +86,44 @@
 
         </Style>
 
-        <Style TargetType="{x:Type TextBox}" x:Key="selectedSongInput">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10,0,10,0"/>
-            <Setter Property="Padding" Value="3"/>
+        <Style TargetType="TextBox" x:Key="selectedSongInput">
             <Setter Property="IsEnabled" Value="False"/>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Style.Resources>
-        </Style>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,5,0"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                            <Border x:Name="Border1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
 
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="70"/>
+                                <Setter TargetName="Border1" Property="Background" Value="lightgray"/>
+                                <Setter TargetName="Border1" Property="BorderBrush" Value="black"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                <Setter TargetName="Border1" Property="BorderBrush" Value="DodgerBlue"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter TargetName="Border1" Property="BorderBrush" Value="Red"/>
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style TargetType="{x:Type TextBlock}" x:Key="selectedSongLabel">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -175,7 +199,7 @@
             <Setter Property="MaxHeight" Value="50"/>
             <Setter Property="MaxWidth" Value="300"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <!--<Setter Property="Template">
+            <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
 
@@ -187,7 +211,7 @@
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
-                </Setter>-->
+                </Setter>
         </Style>
 
          <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">

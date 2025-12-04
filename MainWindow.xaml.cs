@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -20,18 +21,16 @@ namespace Adhoc_szamok
     {
         const string filename = "adhocszamok.json";
         List<Szamok> szamok = LoadFromJson(filename);
+        bool newSong = false;
         private static readonly JsonSerializerOptions options = new()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
+        public string SongLenght { get; set; } = "";
         public MainWindow()
         {
             InitializeComponent();
-
-            //TODO: Combo feltöltés
-            //Onclick események (started)
-            //Új/módosítás (started)
-
+            DataContext = this;
         }
 
 
@@ -109,24 +108,31 @@ namespace Adhoc_szamok
             {
                 var parentGrid = VisualTreeHelper.GetParent(btn);
 
-                while (parentGrid != null && !(parentGrid is ListBoxItem))
-                {
-                    parentGrid = VisualTreeHelper.GetParent(parentGrid);
-                }
-
-                if (parentGrid is ListBoxItem lbi)
-                {
-                    lbi.IsSelected = true;
-                }
+                parentGrid = getCointainingGrid(parentGrid);
                 enableInputs(true);
             }
         }
 
+        private static DependencyObject? getCointainingGrid(DependencyObject? parentGrid)
+        {
+            while (parentGrid != null && !(parentGrid is ListBoxItem))
+            {
+                parentGrid = VisualTreeHelper.GetParent(parentGrid);
+            }
+
+            if (parentGrid is ListBoxItem lbi)
+            {
+                lbi.IsSelected = true;
+            }
+
+            return parentGrid;
+        }
+
         private void Save(object sender, RoutedEventArgs e)
         {
-            if (szamokList.SelectedItem == null)
+            if (newSong)
             {
-                if (LenghtErrorCheck(selectedSongLenght.Text))
+                if (LenghtErrorCheck(selectedSongLenght))
                 {
                     Szamok sz = new Szamok();
                     sz.Cim = selectedSongTitle.Text;
@@ -135,8 +141,10 @@ namespace Adhoc_szamok
                     sz.Szovegiro = selectedSongLyricsAuthor.Text;
                     sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                     sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                    szamok.Add(sz);
                     using var file = File.Create(filename);
                     JsonSerializer.Serialize(file, szamok, options);
+                    newSong = false;
                 }
             }
             else
@@ -147,7 +155,7 @@ namespace Adhoc_szamok
                     {
                         if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
                         {
-                            if (LenghtErrorCheck(selectedSongLenght.Text))
+                            if (LenghtErrorCheck(selectedSongLenght) )
                             {
                                 sz.Cim = selectedSongTitle.Text;
                                 sz.Szerzo = selectedSongInstrumentAuthor.Text;
@@ -163,14 +171,29 @@ namespace Adhoc_szamok
                 }
             }
         }
+        
 
-        private bool LenghtErrorCheck(string data)
+        private void TextBoxGotFocus(object sender, RoutedEventArgs e)
         {
-            var split = data.Split(':');
+            TextBox tb = sender as TextBox;
+            tb.BorderBrush = Brushes.DodgerBlue;
+            tb.Foreground = Brushes.Black;
+            tb.Background = Brushes.White;
+        }
+
+        private void MyTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox? tb = sender as TextBox;
+            tb.BorderBrush = Brushes.DodgerBlue;
+            tb.Foreground = Brushes.Black;
+            tb.Background = Brushes.White;
+        }
+
+        private bool LenghtErrorCheck(TextBox data)
+        {
+            var split = data.Text.Split(':');
             if (!(int.TryParse(split[0], out var m)) || !(int.TryParse(split[1], out var s)))
             {
-                var asd = new Setter();
-                //selectedSongLenght.Style.Setters.Add();
                 return false; // lenght format error
             }
             return true;
@@ -188,8 +211,25 @@ namespace Adhoc_szamok
             return true;
         }
 
+        private void DeleteSong(object sender, RoutedEventArgs e)
+        {
+            if (szamokList.SelectedItem is ListBoxItem item)
+            {
+                foreach (var sz in szamok)
+                {
+                    if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
+                    {
+                        szamok.Remove(sz);
+                        using var file = File.Create(filename);
+                        JsonSerializer.Serialize(file, szamok, options);
+                    }
+                }
+            }
+        }
+
         private void NewSong(object sender, RoutedEventArgs e)
         {
+            newSong = true;
             szamokList.SelectedItem = null;
             enableInputs(true);
             saveButton.Content = "Új szám mentése";
