@@ -16,7 +16,7 @@
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="200"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -105,6 +105,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
@@ -241,10 +242,33 @@
                 </TextBox.Text>
             </TextBox>
 
-            <CheckBox
+            <TextBlock
+                Text="Stílus:"
+                Grid.Row="6"
+                Grid.Column="0"
+                Style="{StaticResource selectedSongLabel}"
+                />
+            <TextBox
+                Grid.Row="6"
+                Grid.Column="1"
+                Name="selectedStyle"
+                Style="{StaticResource selectedSongInput}">
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
+                     UpdateSourceTrigger="PropertyChanged"
+                     ValidatesOnExceptions="True"
+                     ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <local:NotEmptyValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <CheckBox
                     Content="Ki van-e adva"
                     IsEnabled="False"
-                    Grid.Row="6"
+                    Grid.Row="7"
                     Grid.Column="0"
                     Name="selectedSongIsItOut"
                     Style="{StaticResource selectedSongCheckBox}"
@@ -253,7 +277,7 @@
                 Content="Mentés"
                 IsEnabled="False"
                 Grid.Column="1"
-                Grid.Row="6"
+                Grid.Row="7"
                 Name="saveButton"
                 Click="Save"
                 Style="{StaticResource selectedSongButton}"/>

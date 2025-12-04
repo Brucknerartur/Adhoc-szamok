@@ -199,19 +199,6 @@
             <Setter Property="MaxHeight" Value="50"/>
             <Setter Property="MaxWidth" Value="300"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ComboBox">
-
-                        <Border CornerRadius="20"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-                </Setter>
         </Style>
 
          <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">
