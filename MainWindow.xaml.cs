@@ -44,20 +44,23 @@ namespace Adhoc_szamok
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+        { 
             LoadData();
         }
 
         private void LoadData()
         {
             List<string> styles = new List<string>();
-            resetInputs();
             szamokList.Items.Clear();
-            comboStilus.Items.Clear();
+            if (comboStilus.Items.Count > 1)
+            {
+                comboStilus.Items.Clear();
+            }
 
-            ComboBoxItem def = new ComboBoxItem();
-            def.Content = "Kérem válasszon stílust";
-            def.Name = "DefComb";
+            //ComboBoxItem def = new ComboBoxItem();
+            //def.Content = "Kérem válasszon egy műfajt";
+            //def.Name = "DefComb";
+            //comboStilus.Items.Add(def);
             foreach (var szam in szamok)
             {
                 ListBoxItem item = new ListBoxItem();
@@ -224,6 +227,7 @@ namespace Adhoc_szamok
             JsonSerializer.Serialize(file, szamok, options);
             file.Close();
             szamok = LoadFromJson(filename);
+            resetInputs();
             LoadData();
         }
 
@@ -261,8 +265,8 @@ namespace Adhoc_szamok
                         szamok.Remove(sz);
                         using var file = File.Create(filename);
                         JsonSerializer.Serialize(file, szamok, options);
-                        LoadData();
                         resetInputs();
+                        LoadData();
                     }
                 }
             }
@@ -278,13 +282,13 @@ namespace Adhoc_szamok
         private void resetInputs()
         {
             newSong = true;
-            szamokList.SelectedItem = null;
+            szamokList.SelectedItem = string.Empty;
             saveButton.Content = "Új szám mentése";
-            selectedSongTitle.Text = null;
+            selectedSongTitle.Text = string.Empty;
             selectedSongLenght.Text = "00:01";
-            selectedSongInstrumentAuthor.Text = null;
-            selectedSongLyricsAuthor.Text = null;
-            selectedSongOrigin.Text = null;
+            selectedSongInstrumentAuthor.Text = string.Empty;
+            selectedSongLyricsAuthor.Text = string.Empty;
+            selectedSongOrigin.Text = string.Empty;
             selectedStyle.Text = "stilus1,stilus2,stilus3";
             selectedSongIsItOut.IsChecked = false;
         }
@@ -334,34 +338,48 @@ namespace Adhoc_szamok
 
         private void comboStilus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comboStilus.Items.Remove(DefComb);
             ComboBoxItem selected = (ComboBoxItem)comboStilus.SelectedItem;
-            if (StyleStackPanel != null && selected != null)
+            if (StyleStackPanel != null && selected != null )
             {
-                StyleStackPanel.Children.Clear();
-                string name = selected.Name as string;
-
-                foreach (var sz in szamok)
+                if (selected == DefComb)
                 {
-                    TextBlock selectedGenre = new TextBlock();
-                    selectedGenre.Style = (Style)FindResource("searchSongTextblock");
-                    selectedGenre.Text = "";
-                    foreach (var stilo in sz.Stilus!)
-                    {
-                        if (stilo != null && $"{stilo[0]}{stilo[1]}{stilo[2]}{stilo[3]}" == name)
-                        {
-                            selectedGenre.Text = $"- {sz.Cim}";
-                        }
-                    }
-                    if(selectedGenre.Text != "")
-                    {
-                        StyleStackPanel.Children.Add(selectedGenre);    
-                    }
-
+                    StyleStackPanel.Children.Clear();
+                    string name = selected.Name as string;
+                    writeStylesOut(name);
                 }
-                
+                else
+                {
+                    StyleStackPanel.Children.Clear();
+                    string name = selected.Name as string;
+
+                    writeStylesOut(name);
+                    comboStilus.Items.Remove(DefComb);
+                }
+
             }
-            
+
+        }
+
+        private void writeStylesOut(string name)
+        {
+            foreach (var sz in szamok)
+            {
+                TextBlock selectedGenre = new TextBlock();
+                selectedGenre.Style = (Style)FindResource("searchSongTextblock");
+                selectedGenre.Text = "";
+                foreach (var stilo in sz.Stilus!)
+                {
+                    if (stilo != null && $"{stilo[0]}{stilo[1]}{stilo[2]}{stilo[3]}" == name)
+                    {
+                        selectedGenre.Text = $"- {sz.Cim}";
+                    }
+                }
+                if (selectedGenre.Text != "")
+                {
+                    StyleStackPanel.Children.Add(selectedGenre);
+                }
+
+            }
         }
     }
 }
