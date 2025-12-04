@@ -44,12 +44,16 @@
 
         <Style TargetType="{x:Type Label}" x:Key="szamokListItemGridLabel">
             <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
 
         <Style TargetType="{x:Type Button}" x:Key="szamokListItemGridButton">
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#023d9c"/>
+            <Setter Property="Foreground" Value="White"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -69,8 +73,26 @@
         </Style>
 
         <Style TargetType="{x:Type Button}" x:Key="selectedSongButton">
-            <Setter Property="MinWidth" Value="100"/>
-            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="Background" Value="#017a09"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="60"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+
+        <Style TargetType="{x:Type Button}" x:Key="deleteButton">
+            <Setter Property="Background" Value="#99030b"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="60"/>
             <Setter Property="Padding" Value="3"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -89,7 +111,7 @@
         <Style TargetType="TextBox" x:Key="selectedSongInput">
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10,0,5,0"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
             <Setter Property="Padding" Value="3"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="White"/>
@@ -202,7 +224,7 @@
         </Style>
 
          <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type TextBlock}" x:Key="searchSongTextblock">

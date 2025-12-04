@@ -12,8 +12,9 @@
         Loaded="Window_Loaded"
         >
     <Window.Background>
-        <SolidColorBrush Color="#FFE61414" Opacity="0.4"/>
+        <SolidColorBrush Color="#161616" Opacity="1"/>
     </Window.Background>
+    <!--FFE61414-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="110"/>
@@ -30,12 +31,6 @@
         <Border
                 Grid.ColumnSpan="2" CornerRadius="0,0,50,50"
                 >
-            <Border.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
             <Border.Background>
                 <SolidColorBrush Color="Black" Opacity="1"/>
             </Border.Background>
@@ -52,9 +47,14 @@
         </Border>
 
         <ListBox
+            BorderBrush="Black"
+            BorderThickness="5"
                     Name="szamokList" 
                     Style="{StaticResource szamokList}" 
                     SelectionChanged="szamokList_SelectionChanged">
+            <ListBox.Background>
+                <SolidColorBrush Color="#FFE61414" Opacity="0.4"/>
+            </ListBox.Background>
             <ListBoxItem Style="{StaticResource szamokListItem}">
                 <Grid Style="{StaticResource szamokListItemGrid}">
                     <Grid.ColumnDefinitions>
@@ -72,6 +72,7 @@
         </ListBox>
 
         <Grid
+            Margin="0, 30, 0, 0"
             Grid.Row="1"
             Grid.Column="1">
             <Grid.RowDefinitions>
@@ -90,165 +91,177 @@
                 Content="Törlés"
                 Name="szamTorol"
                 Click="DeleteSong"
-                Style="{StaticResource selectedSongButton}">
+                Style="{StaticResource deleteButton}">
             </Button>
         </Grid>
 
+        <Border Grid.Row="2"
+                Margin="40,40,40,40"
+                BorderBrush="Black"
+                BorderThickness="5"
+                CornerRadius="30">
+            <Border.Background>
+                <SolidColorBrush Color="#FFE61414" Opacity="0.4"/>
+            </Border.Background>
 
-        <Grid
+
+
+            <Grid
+            
             Grid.Row="2"
             Grid.RowSpan="1"
-            Margin="40,0,40,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition />
-            </Grid.RowDefinitions>
+            Margin="40,20,40,20">
 
-            <TextBlock
-            Text="Adatok"
-            Grid.Row="0"
-                Grid.ColumnSpan="2"
-            Style="{StaticResource searchSongTitle}"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Text="Adatok"
+                    Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                    Style="{StaticResource searchSongTitle}"
             />
 
-            <TextBlock
+                <TextBlock
                 Text="Cím:"
                 Grid.Row="1"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Name="selectedSongTitle"
                 Style="{StaticResource selectedSongInput}">
-                <TextBox.Text>
-                    <Binding Path="SongLenght"
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
                      UpdateSourceTrigger="PropertyChanged"
                      ValidatesOnExceptions="True"
                      ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <local:NotEmptyValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+                            <Binding.ValidationRules>
+                                <local:NotEmptyValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
 
-            <TextBlock
+                <TextBlock
                 Text="Hossz:"
                 Grid.Row="2"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Name="selectedSongLenght"
                 Style="{StaticResource selectedSongInput}">
 
-                <TextBox.Text>
-                    <Binding Path="SongLenght"
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
                  UpdateSourceTrigger="PropertyChanged"
                  ValidatesOnExceptions="True"
                  ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <local:LenghtValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+                            <Binding.ValidationRules>
+                                <local:LenghtValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
 
 
-            <TextBlock
+                <TextBlock
                 Text="Keletkezés:"
                 Grid.Row="3"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
                 Name="selectedSongOrigin"
                 Style="{StaticResource selectedSongInput}"
                 >
-                <TextBox.Text>
-                    <Binding Path="SongLenght"
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
                      UpdateSourceTrigger="PropertyChanged"
                      ValidatesOnExceptions="True"
                      ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <local:NumericValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+                            <Binding.ValidationRules>
+                                <local:NumericValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
-            <TextBlock
+                <TextBlock
                 Text="Szerző:"
                 Grid.Row="4"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
                 Name="selectedSongInstrumentAuthor"
                 Style="{StaticResource selectedSongInput}"
                 >
-                <TextBox.Text>
-                    <Binding Path="SongLenght"
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
                      UpdateSourceTrigger="PropertyChanged"
                      ValidatesOnExceptions="True"
                      ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <local:NotEmptyValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+                            <Binding.ValidationRules>
+                                <local:NotEmptyValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
-            <TextBlock
+                <TextBlock
                 Text="Szöveg író:"
                 Grid.Row="5"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
                 Name="selectedSongLyricsAuthor"
                 Style="{StaticResource selectedSongInput}">
-                <TextBox.Text>
-                    <Binding Path="SongLenght"
+                    <TextBox.Text>
+                        <Binding Path="SongLenght"
                      UpdateSourceTrigger="PropertyChanged"
                      ValidatesOnExceptions="True"
                      ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <local:NotEmptyValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+                            <Binding.ValidationRules>
+                                <local:NotEmptyValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
-            <TextBlock
+                <TextBlock
                 Text="Stílus:"
                 Grid.Row="6"
                 Grid.Column="0"
                 Style="{StaticResource selectedSongLabel}"
                 />
-            <TextBox
+                <TextBox
                 Grid.Row="6"
                 Grid.Column="1"
                 Name="selectedStyle"
@@ -273,7 +286,7 @@
                     Name="selectedSongIsItOut"
                     Style="{StaticResource selectedSongCheckBox}"
                     />
-            <Button
+                <Button
                 Content="Mentés"
                 IsEnabled="False"
                 Grid.Column="1"
@@ -281,45 +294,61 @@
                 Name="saveButton"
                 Click="Save"
                 Style="{StaticResource selectedSongButton}"/>
-        </Grid>
+            </Grid>
+        </Border>
 
-        <Grid
+
+        <Border Grid.Row="2"
+                Grid.Column="2"
+                Margin="40,40,40,40"
+                BorderBrush="Black"
+                BorderThickness="5"
+                CornerRadius="30">
+            <Border.Background>
+                <SolidColorBrush Color="#FFE61414" Opacity="0.4"/>
+            </Border.Background>
+
+
+
+            <Grid
             Grid.Row="2"
-            Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            Grid.Column="1"
+                Margin="40,20,40,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
                 Text="Szűrés műfaj alapján"
                 Grid.Row="0"
                 Style="{StaticResource searchSongTitle}"
                 />
-            <ComboBox
+                <ComboBox
             Name="comboStilus"
             Grid.Row="1"
             Style="{StaticResource searchSongCombobox}"
             SelectedIndex="0" 
             SelectionChanged="comboStilus_SelectionChanged">
-                <ComboBoxItem
+                    <ComboBoxItem
                 Content="Kérem válasszon egy műfajt"
                 Name="DefComb"/>
-            </ComboBox>
-            <StackPanel
+                </ComboBox>
+                <StackPanel
             Name="StyleStackPanel"
             Grid.Column="1"
             Grid.Row="2"
             Style="{StaticResource searchSongStackPanel}">
-                <TextBlock
+                    <TextBlock
                 Text="Kérem válasszon egy műfajt"
                 Name="Default"
                 Style="{StaticResource searchSongTextblock}"/>
-            </StackPanel>
-        </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
