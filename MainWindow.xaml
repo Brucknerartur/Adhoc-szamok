@@ -40,7 +40,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock 
-                           Text="Ad Hoc szamok"
+                           Text="Ad Hoc számok"
                            Style="{StaticResource Title}"/>
 
             </Grid>
@@ -329,24 +329,24 @@
                 Style="{StaticResource searchSongTitle}"
                 />
                 <ComboBox
-            Name="comboStilus"
-            Grid.Row="1"
-            Style="{StaticResource searchSongCombobox}"
-            SelectedIndex="0" 
-            SelectionChanged="comboStilus_SelectionChanged">
-                    <ComboBoxItem
-                Content="Kérem válasszon egy műfajt"
-                Name="DefComb"/>
+                        Name="comboStilus"
+                        Grid.Row="1"
+                        Style="{StaticResource searchSongCombobox}"
+                        SelectedIndex="0" 
+                        SelectionChanged="comboStilus_SelectionChanged">
+                            <ComboBoxItem
+                                    Content="Kérem válasszon egy műfajt"
+                                    Name="DefComb"/>
                 </ComboBox>
                 <StackPanel
-            Name="StyleStackPanel"
-            Grid.Column="1"
-            Grid.Row="2"
-            Style="{StaticResource searchSongStackPanel}">
+                    Name="StyleStackPanel"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Style="{StaticResource searchSongStackPanel}">      
                     <TextBlock
-                Text="Kérem válasszon egy műfajt"
-                Name="Default"
-                Style="{StaticResource searchSongTextblock}"/>
+                            Text="Kérem válasszon egy műfajt"
+                            Name="Default"
+                            Style="{StaticResource searchSongTextblock}"/>
                 </StackPanel>
             </Grid>
         </Border>

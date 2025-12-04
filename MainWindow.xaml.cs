@@ -52,7 +52,13 @@ namespace Adhoc_szamok
         private void LoadData()
         {
             List<string> styles = new List<string>();
+            resetInputs();
             szamokList.Items.Clear();
+            comboStilus.Items.Clear();
+
+            ComboBoxItem def = new ComboBoxItem();
+            def.Content = "Kérem válasszon stílust";
+            def.Name = "DefComb";
             foreach (var szam in szamok)
             {
                 ListBoxItem item = new ListBoxItem();
@@ -175,10 +181,8 @@ namespace Adhoc_szamok
                     if (NotFilledErrorCheck(sz))
                     {
                     szamok.Add(sz);
-                    }
+                    newSong = false;
                 }
-                newSong = false;
-                    
             }
             else
             {
@@ -265,16 +269,23 @@ namespace Adhoc_szamok
                         using var file = File.Create(filename);
                         JsonSerializer.Serialize(file, szamok, options);
                         LoadData();
+                        resetInputs();
                     }
                 }
             }
+
         }
 
         private void NewSong(object sender, RoutedEventArgs e)
         {
+            enableInputs(true);
+            resetInputs();
+        }
+
+        private void resetInputs()
+        {
             newSong = true;
             szamokList.SelectedItem = null;
-            enableInputs(true);
             saveButton.Content = "Új szám mentése";
             selectedSongTitle.Text = null;
             selectedSongLenght.Text = "00:01";
@@ -330,11 +341,11 @@ namespace Adhoc_szamok
 
         private void comboStilus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (StyleStackPanel != null)
+            comboStilus.Items.Remove(DefComb);
+            ComboBoxItem selected = (ComboBoxItem)comboStilus.SelectedItem;
+            if (StyleStackPanel != null && selected != null)
             {
                 StyleStackPanel.Children.Clear();
-                comboStilus.Items.Remove(DefComb);
-                ComboBoxItem selected = (ComboBoxItem)comboStilus.SelectedItem;
                 string name = selected.Name as string;
 
                 foreach (var sz in szamok)
