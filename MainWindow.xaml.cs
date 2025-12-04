@@ -133,7 +133,7 @@ namespace Adhoc_szamok
                     sz.Szerzo = selectedSongInstrumentAuthor.Text;
                     sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
                     sz.Szovegiro = selectedSongLyricsAuthor.Text;
-                    sz.Kiadva = (bool)selectedSongIsItOut.IsChecked;
+                    sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                     sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
                     using var file = File.Create(filename);
                     JsonSerializer.Serialize(file, szamok, options);
@@ -153,7 +153,7 @@ namespace Adhoc_szamok
                                 sz.Szerzo = selectedSongInstrumentAuthor.Text;
                                 sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
                                 sz.Szovegiro = selectedSongLyricsAuthor.Text;
-                                sz.Kiadva = (bool)selectedSongIsItOut.IsChecked;
+                                sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                                 sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
                             }
                         }
@@ -170,7 +170,7 @@ namespace Adhoc_szamok
             if (!(int.TryParse(split[0], out var m)) || !(int.TryParse(split[1], out var s)))
             {
                 var asd = new Setter();
-                selectedSongLenght.Style.Setters.Add();
+                //selectedSongLenght.Style.Setters.Add();
                 return false; // lenght format error
             }
             return true;
@@ -256,7 +256,7 @@ namespace Adhoc_szamok
                     {
                         if (stilo != null && $"{stilo[0]}{stilo[1]}{stilo[2]}{stilo[3]}" == name)
                         {
-                            selectedGenre.Text = sz.Cim;
+                            selectedGenre.Text = $"- {sz.Cim}";
                         }
                     }
                     if(selectedGenre.Text != "")

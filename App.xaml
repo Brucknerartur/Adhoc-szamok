@@ -105,7 +105,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-
+ 
         <Style TargetType="{x:Type CheckBox}" x:Key="selectedSongCheckBox">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -167,21 +167,30 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Bookman Old Style"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            
+            <Setter Property="FontSize" Value="30"/>
+
         </Style>
 
         <Style TargetType="{x:Type ComboBox}" x:Key="searchSongCombobox">
             <Setter Property="MaxHeight" Value="50"/>
             <Setter Property="MaxWidth" Value="300"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Style.Resources>
+            <!--<Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+
+                        <Border CornerRadius="20"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+                </Setter>-->
         </Style>
 
-        <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">
+         <Style TargetType="{x:Type StackPanel}" x:Key="searchSongStackPanel">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
