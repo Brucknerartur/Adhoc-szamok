@@ -45,7 +45,7 @@ namespace Adhoc_szamok
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        { 
+        {
             LoadData();
         }
 
@@ -221,67 +221,19 @@ namespace Adhoc_szamok
                                         asd.Add(selectedStyle.Text);
                                         sz.Stilus = asd;
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
-                using var file = File.Create(filename);
-                JsonSerializer.Serialize(file, szamok, options);
-                file.Close();
-                szamok = LoadFromJson(filename);
-                LoadData();
-            }
-        }
-                    szamok.Add(sz);
-                    newSong = false;
-                }
-            }
-            else
-            {
-                if (szamokList.SelectedItem is ListBoxItem item)
-                {
-                    foreach (var sz in szamok)
-                    {
-                        if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
-                        {
-                            if (LenghtErrorCheck(selectedSongLenght))
-                            {
-                                sz.Cim = selectedSongTitle.Text;
-                                sz.Szerzo = selectedSongInstrumentAuthor.Text;
-                                sz.Keletkezes = int.Parse(selectedSongOrigin.Text);
-                                sz.Szovegiro = selectedSongLyricsAuthor.Text;
-                                sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
-                                sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
-                                if (selectedStyle.Text.Contains(","))
-                                {
-                                    var asd = new List<string>();
-                                    foreach (var qwe in selectedStyle.Text.Split(","))
-                                    {
-                                        if (!string.IsNullOrEmpty(qwe))
-                                        {
-                                            asd.Add(qwe.Trim());
-                                        }
-                                    }
-                                    sz.Stilus = asd;
-                                }
-                                else
-                                {
-                                    var asd = new List<string>();
-                                    asd.Add(selectedStyle.Text);
-                                    sz.Stilus = asd;
+                                    szamok.Add(sz);
+                                    newSong = false;
+                                    using var file = File.Create(filename);
+                                    JsonSerializer.Serialize(file, szamok, options);
+                                    file.Close();
+                                    szamok = LoadFromJson(filename);
+                                    LoadData();
                                 }
                             }
                         }
                     }
                 }
             }
-            using var file = File.Create(filename);
-            JsonSerializer.Serialize(file, szamok, options);
-            file.Close();
-            szamok = LoadFromJson(filename);
-            resetInputs();
-            LoadData();
         }
 
         private bool LenghtErrorCheck(TextBox data)
@@ -396,7 +348,7 @@ namespace Adhoc_szamok
         private void comboStilus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem selected = (ComboBoxItem)comboStilus.SelectedItem;
-            if (StyleStackPanel != null && selected != null )
+            if (StyleStackPanel != null && selected != null)
             {
                 if (selected == DefComb)
                 {
