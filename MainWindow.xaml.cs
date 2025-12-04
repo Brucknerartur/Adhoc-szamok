@@ -45,6 +45,11 @@ namespace Adhoc_szamok
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             List<string> styles = new List<string>();
             szamokList.Items.Clear();
             foreach (var szam in szamok)
@@ -54,15 +59,15 @@ namespace Adhoc_szamok
 
                 Grid grid = new Grid();
                 grid.RowDefinitions.Add(new RowDefinition());
-                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star)});
-                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2, GridUnitType.Auto)});
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2, GridUnitType.Auto) });
                 grid.Style = (Style)FindResource("szamokListItemGrid");
 
 
                 Label label = new Label();
                 label.Content = szam.Cim;
                 label.Style = (Style)FindResource("szamokListItemGridLabel");
-                    Grid.SetColumn(label, 0);
+                Grid.SetColumn(label, 0);
                 Grid.SetRow(label, 0);
 
                 grid.Children.Add(label);
@@ -90,14 +95,21 @@ namespace Adhoc_szamok
                     }
                 }
             }
-            foreach (var style in styles)
+
+            for (int i = 0; i < styles.Count(); i++)
             {
+                var style = styles[i];
                 ComboBoxItem newItem = new ComboBoxItem();
                 newItem.Content = style;
+                if (style.Length < 5)
+                {
+                    style += "aaa";
+                }
                 newItem.Name = $"{style[0]}{style[1]}{style[2]}{style[3]}";
                 comboStilus.Items.Add(newItem);
             }
-            selectedSongLenght.Text = "00:00";
+            selectedSongLenght.Text = "00:01";
+            selectedStyle.Text = "stilus1,stilus2,stilus3";
         }
 
         private void Modify(object sender, RoutedEventArgs e)
@@ -141,6 +153,24 @@ namespace Adhoc_szamok
                     sz.Szovegiro = selectedSongLyricsAuthor.Text;
                     sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                     sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                    if (selectedStyle.Text.Contains(","))
+                    {
+                       var asd = new List<string>();
+                        foreach (var item in selectedStyle.Text.Split(","))
+                        {
+                            if (!string.IsNullOrEmpty(item))
+                            {
+                                asd.Add(item.Trim()) ;
+                            }
+                        }
+                        sz.Stilus = asd;
+                    }
+                    else
+                    {
+                        var asd = new List<string>();
+                        asd.Add(selectedStyle.Text);
+                        sz.Stilus = asd;
+                    }
                     szamok.Add(sz);
                     using var file = File.Create(filename);
                     JsonSerializer.Serialize(file, szamok, options);
@@ -155,7 +185,7 @@ namespace Adhoc_szamok
                     {
                         if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
                         {
-                            if (LenghtErrorCheck(selectedSongLenght) )
+                            if (LenghtErrorCheck(selectedSongLenght))
                             {
                                 sz.Cim = selectedSongTitle.Text;
                                 sz.Szerzo = selectedSongInstrumentAuthor.Text;
@@ -163,11 +193,31 @@ namespace Adhoc_szamok
                                 sz.Szovegiro = selectedSongLyricsAuthor.Text;
                                 sz.Kiadva = (bool)selectedSongIsItOut.IsChecked!;
                                 sz.Hossz = double.Parse(selectedSongLenght.Text.Replace(":", ","));
+                                if (selectedStyle.Text.Contains(","))
+                                {
+                                    var asd = new List<string>();
+                                    foreach (var qwe in selectedStyle.Text.Split(","))
+                                    {
+                                        if (!string.IsNullOrEmpty(qwe))
+                                        {
+                                            asd.Add(qwe.Trim());
+                                        }
+                                    }
+                                    sz.Stilus = asd;
+                                }
+                                else
+                                {
+                                    var asd = new List<string>();
+                                    asd.Add(selectedStyle.Text);
+                                    sz.Stilus = asd;
+                                }
                             }
                         }
                     }
                     using var file = File.Create(filename);
                     JsonSerializer.Serialize(file, szamok, options);
+                    szamok = LoadFromJson(filename);
+                    LoadData();
                 }
             }
         }
@@ -215,13 +265,15 @@ namespace Adhoc_szamok
         {
             if (szamokList.SelectedItem is ListBoxItem item)
             {
-                foreach (var sz in szamok)
+                for (global::System.Int32 i = 0; i < szamok.Count(); i++)
                 {
+                    var sz = szamok[i];
                     if (sz.Cim?.Replace(" ", "_").Replace(".", "").Replace("(", "").Replace(")", "") == item.Name)
                     {
                         szamok.Remove(sz);
                         using var file = File.Create(filename);
                         JsonSerializer.Serialize(file, szamok, options);
+                        LoadData();
                     }
                 }
             }
@@ -234,10 +286,11 @@ namespace Adhoc_szamok
             enableInputs(true);
             saveButton.Content = "Új szám mentése";
             selectedSongTitle.Text = null;
-            selectedSongLenght.Text = "00:00";
+            selectedSongLenght.Text = "00:01";
             selectedSongInstrumentAuthor.Text = null;
             selectedSongLyricsAuthor.Text = null;
             selectedSongOrigin.Text = null;
+            selectedStyle.Text = "stilus1,stilus2,stilus3";
             selectedSongIsItOut.IsChecked = false;
         }
 
@@ -249,6 +302,7 @@ namespace Adhoc_szamok
             selectedSongLyricsAuthor.IsEnabled = value;
             selectedSongOrigin.IsEnabled = value;
             selectedSongIsItOut.IsEnabled = value;
+            selectedStyle.IsEnabled = value;
             saveButton.IsEnabled = value;
         }
 
@@ -273,6 +327,11 @@ namespace Adhoc_szamok
                         selectedSongLyricsAuthor.Text = sz.Szovegiro;
                         selectedSongOrigin.Text = sz.Keletkezes.ToString();
                         selectedSongIsItOut.IsChecked = sz.Kiadva;
+                        selectedStyle.Text = "";
+                        foreach (var item1 in sz.Stilus)
+                        {
+                            selectedStyle.Text += item1.ToString() + ",";
+                        }
                     }
                 }
             }
