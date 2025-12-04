@@ -36,6 +36,7 @@
 
         <Style TargetType="{x:Type ListBoxItem}" x:Key="szamokListItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="5"/>
         </Style>
 
         <Style TargetType="{x:Type Grid}" x:Key="szamokListItemGrid">
@@ -72,7 +73,7 @@
             <Setter Property="Margin" Value="10"/>
         </Style>
 
-        <Style TargetType="{x:Type Button}" x:Key="selectedSongButton">
+        <Style TargetType="{x:Type Button}" x:Key="newSongButton">
             <Setter Property="Background" Value="#017a09"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="MinWidth" Value="120"/>
@@ -101,6 +102,31 @@
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Style.Resources>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="selectedSongButton">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="60"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="Content" Value="Új szám mentése">
+                    <Setter Property="Background" Value="#017a09"/>
+                </Trigger>
+                <Trigger Property="Content" Value="Módosítás">
+                    <Setter Property="Background" Value="#023d9c"/>
+                </Trigger>
+                <Trigger Property="Content" Value="Mentés">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="{x:Type TextBlock}" x:Key="selectedSongTitle">

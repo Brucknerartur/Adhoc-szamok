@@ -172,9 +172,8 @@ namespace Adhoc_szamok
                         sz.Stilus = asd;
                     }
                     szamok.Add(sz);
-                    using var file = File.Create(filename);
-                    JsonSerializer.Serialize(file, szamok, options);
                     newSong = false;
+                    
                 }
             }
             else
@@ -214,29 +213,13 @@ namespace Adhoc_szamok
                             }
                         }
                     }
-                    using var file = File.Create(filename);
-                    JsonSerializer.Serialize(file, szamok, options);
-                    szamok = LoadFromJson(filename);
-                    LoadData();
                 }
             }
-        }
-        
-
-        private void TextBoxGotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            tb.BorderBrush = Brushes.DodgerBlue;
-            tb.Foreground = Brushes.Black;
-            tb.Background = Brushes.White;
-        }
-
-        private void MyTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox? tb = sender as TextBox;
-            tb.BorderBrush = Brushes.DodgerBlue;
-            tb.Foreground = Brushes.Black;
-            tb.Background = Brushes.White;
+            using var file = File.Create(filename);
+            JsonSerializer.Serialize(file, szamok, options);
+            file.Close();
+            szamok = LoadFromJson(filename);
+            LoadData();
         }
 
         private bool LenghtErrorCheck(TextBox data)
@@ -328,7 +311,7 @@ namespace Adhoc_szamok
                         selectedSongOrigin.Text = sz.Keletkezes.ToString();
                         selectedSongIsItOut.IsChecked = sz.Kiadva;
                         selectedStyle.Text = "";
-                        foreach (var item1 in sz.Stilus)
+                        foreach (var item1 in sz.Stilus!)
                         {
                             selectedStyle.Text += item1.ToString() + ",";
                         }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow"  
         MinWidth="1250"
-        MinHeight="800"
+        MinHeight="900"
         FontSize="20"
         Loaded="Window_Loaded"
         >
@@ -84,7 +84,7 @@
                 Grid.Row="0"
                 Name="ujSzam"
                 Click="NewSong"
-                Style="{StaticResource selectedSongButton}">
+                Style="{StaticResource newSongButton}">
             </Button>
             <Button
                 Grid.Row="1"
